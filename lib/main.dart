@@ -1,4 +1,5 @@
 import 'package:bloc_pattern/logic/cubit/counter_cubit.dart';
+import 'package:bloc_pattern/presentation/router/app_routes.dart';
 import 'package:bloc_pattern/presentation/screens/home_screen.dart';
 import 'package:bloc_pattern/presentation/screens/second_screen.dart';
 import 'package:bloc_pattern/presentation/screens/third_screen.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    AppRoutes appRoutes = AppRoutes();
     return BlocProvider<CounterCubit>(
       create: (BuildContext context) => CounterCubit(),
       child: MaterialApp(
@@ -24,14 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => const MyHomeScreen(title: 'Flutter Demo Home Page'),
-          '/second': (context) =>
-              const SecondScreen(title: "Second screen", color: Colors.green),
-          '/third': (context) =>
-              const ThirdScreen(title: "Third screen", color: Colors.red)
-        },
+        onGenerateRoute: appRoutes.generateRoute,
       ),
     );
   }

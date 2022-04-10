@@ -67,7 +67,7 @@ class SecondScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/third');
             },
-            child: const Text("Go back to previous page"),
+            child: const Text("Go to third screen"),
           )
         ],
       ),

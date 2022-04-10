@@ -84,7 +84,10 @@ class _ThirdScreenState extends State<ThirdScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, '/');
               },
-              child: const Text("Go to Home page"),
+              child: const Text(
+                "Go to Home page",
+                style: TextStyle(color: Colors.red),
+              ),
             )
           ],
         ),
